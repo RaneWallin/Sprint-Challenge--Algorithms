@@ -6,5 +6,14 @@ Your function must utilize recursion. It cannot contain any loops.
 def count_th(word):
     
     # TBC
+    return find_occ(word, 0)
     
-    pass
+def find_occ(word, n):
+    i = word.find('th')
+
+    if i == -1:
+        return n
+
+    word = word[0: i:] + word[i+3::]
+    n += 1
+    return find_occ(word, n)
